@@ -1,0 +1,40 @@
+- name: Add apt key
+  become: true
+  command: apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys F23C5A6CF475977595C89F51BA6932366A755776
+
+- name: Update apt cache
+  become: true
+  ansible.builtin.apt:
+    update_cache: yes
+
+- name: Install gnupg
+  become: true
+  ansible.builtin.apt:
+    name: gnupg
+    state: present
+
+- name: Add MongoDB GPG Key
+  become: true
+  ansible.builtin.apt_key:
+    url: https://www.mongodb.org/static/pgp/server-6.0.asc
+    state: present
+
+- name: Add MongoDB repository
+  become: true
+  ansible.builtin.apt_repository:
+    repo: deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse
+    state: present
+
+- name: Install MongoDB
+  become: true
+  ansible.builtin.apt:
+    name: mongodb-org
+    state: present
+    update_cache: yes
+
+- name: Ensure mongod service is running
+  become: true
+  ansible.builtin.service:
+    name: mongod
+    state: started
+    enabled: yes
