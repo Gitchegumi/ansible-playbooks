@@ -6,4 +6,4 @@ This repository contains a collection of Terraform and Ansible Playbooks to depl
 
 ### Azure
 
-- [Student Evironment for Azure](./studentEnvironments/setup-mongoDB-python3.10/)
+- [Student Evironments for Azure](./studentEnvironments/)
