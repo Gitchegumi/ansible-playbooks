@@ -9,7 +9,7 @@ This playbook is designed to set up a MongoDB server in accordance with the inst
 
 ## Running the playbook
 
-These commands should be run on your local machine from the `setup-mongoDB-python3.10` directory. The scripts contain language that will navigate the folders as needed. Do not change the file structure unless you know what you are doing. Or do, I'm not your dad.
+These commands should be run on your local machine from the `setup-Standard_B2ms-Ubuntu_20.04-mongoDB-python3.10` directory. The scripts contain language that will navigate the folders as needed. Do not change the file structure unless you know what you are doing. Or do, I'm not your dad.
 
 Run the following to set up the environment:
 
