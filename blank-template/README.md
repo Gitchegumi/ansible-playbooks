@@ -26,7 +26,7 @@ This is a blank template for creating new dev enbironments with Terraform and An
     ├── main.tf
     ├── output.tf
     ├── providers.tf
-    └── variables.tf 
+    └── variables.tf # change variables as necessary
 
 11 directories, 11 files
 ```  

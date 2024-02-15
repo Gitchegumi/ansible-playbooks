@@ -1,55 +1,55 @@
 variable "location" {
     description = "The location/region of the resource group"
     type = string
-    default = "eastus"
+    default = "<location>"
 }
 
 variable "resource_group_name" {
     description = "The name of the resource group"
     type = string
-    default = "multi-model-databases"
+    default = "<your_resource_group_name>"
 }
 
 variable "vm_name" {
     description = "The name of the virtual machine"
     type = string
-    default = "multimodelengg"
+    default = "<vm_name>"
 }
 
 variable "vm_size" {
     description = "The size of the virtual machine"
     type = string
-    default = "Standard_B2ms"
+    default = "<vm_size>"
 }
 
 variable "vm_image_publisher" {
     description = "The publisher of the virtual machine image"
     type = string
-    default = "Canonical"  
+    default = "<publisher>"  
 }
 
 variable "vm_image_offer" {
     description = "The offer of the virtual machine image"
     type = string
-    default = "0001-com-ubuntu-server-focal"
+    default = "<offer>"
 }
 
 variable "vm_image_sku" {
     description = "The SKU of the virtual machine image"
     type = string
-    default = "20_04-lts"
+    default = "<sku>"
 }
 
 variable "vm_image_version" {
     description = "The version of the virtual machine image"
     type = string
-    default = "latest"  
+    default = "<version>"  
 }
 
 variable "vm_os_disk_storage_type" {
     description = "The storage type of the OS disk"
     type = string
-    default = "Standard_LRS"  
+    default = "<storage_type>"  
 }
 
 variable "local_admin_username" {
