@@ -1,4 +1,4 @@
-# Blank Template
+# Boilerplates
 
 This is a blank template for creating new dev enbironments with Terraform and Ansible.
 
