@@ -1,0 +1,10 @@
+- name: create destination directory
+  # This task creates the destination directory for the files.
+  ansible.builtin.file:
+    path: /home/clouduser/elucidate-capstone
+    state: directory
+
+- name: Clone GitHub repository
+  ansible.builtin.git:
+    repo: 'https://{{ github_user }}:{{ github_password }}@github.com/AI-Technicians-Capstone-Projects/S24-BDA.git'
+    dest: /home/clouduser/elucidate-capstone

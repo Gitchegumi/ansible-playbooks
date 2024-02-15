@@ -1,6 +1,19 @@
 ---
 - hosts: all
+  become: true
+  vars_prompt:
+    - name: "github_user"
+      prompt: "Enter your github username"
+      private: no
+    - name: "github_password"
+      prompt: "Enter your github password"
+      private: yes
+  
   roles:
-    - handout
-    - python
-    - mongodb
+    - role: get-repo
+      vars:
+        github_user: "{{ github_user }}"
+        github_password: "{{ github_password }}"
+    - install-python
+    - setup-python-environment
+    - major-packages
