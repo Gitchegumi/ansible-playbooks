@@ -1,55 +1,55 @@
 variable "location" {
     description = "The location/region of the resource group"
     type = string
-    default = "<location>"
+    default = "eastus"
 }
 
 variable "resource_group_name" {
     description = "The name of the resource group"
     type = string
-    default = "<your_resource_group_name>"
+    default = "elucidate-capstone-rg"
 }
 
 variable "vm_name" {
     description = "The name of the virtual machine"
     type = string
-    default = "<vm_name>"
+    default = "elucidate-capstone-vm"
 }
 
 variable "vm_size" {
     description = "The size of the virtual machine"
     type = string
-    default = "<vm_size>"
+    default = "Standard_B1ms"
 }
 
 variable "vm_image_publisher" {
     description = "The publisher of the virtual machine image"
     type = string
-    default = "<publisher>"  
+    default = "canonical"  
 }
 
 variable "vm_image_offer" {
     description = "The offer of the virtual machine image"
     type = string
-    default = "<offer>"
+    default = "0001-com-ubuntu-server-jammy"
 }
 
 variable "vm_image_sku" {
     description = "The SKU of the virtual machine image"
     type = string
-    default = "<sku>"
+    default = "22_04-lts-gen2"
 }
 
 variable "vm_image_version" {
     description = "The version of the virtual machine image"
     type = string
-    default = "<version>"  
+    default = "latest"  
 }
 
 variable "vm_os_disk_storage_type" {
     description = "The storage type of the OS disk"
     type = string
-    default = "<storage_type>"  
+    default = "Standard_LRS"  
 }
 
 variable "local_admin_username" {
