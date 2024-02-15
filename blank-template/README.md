@@ -2,6 +2,7 @@
 
 This is a blank template for creating new dev enbironments with Terraform and Ansible.
 
+```bash
 [Azure VM](./setup-Azure-VM/)  
 |- setup-Azure-VM/  
 |  |- terraform/  
@@ -26,4 +27,5 @@ This is a blank template for creating new dev enbironments with Terraform and An
 |  |  |  |  |- tasks/  
 |  |  |  |  |  |- main.yml  
 |  |- ansible.sh # A script to run the ansible playbook by itself. Use this to troubleshoot if your initial setup fails. setup.sh should be run first to establish environment variables.  
-|  |- setup.sh # A script to run the terraform and ansible commands in order. Use this to set up the environment all in one shebang.  
+|  |- setup.sh # A script to run the terraform and ansible commands in order. Use this to set up the environment all in one shebang.
+```  
