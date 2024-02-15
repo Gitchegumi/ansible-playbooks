@@ -6,4 +6,5 @@ This repository contains a collection of Terraform files and Ansible Playbooks t
 
 ### Azure
 
+- [Boilerplates](./blank-template/)
 - [Student Evironments for Azure](./studentEnvironments/)

@@ -2,10 +2,10 @@
   become: true
   command: apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys F23C5A6CF475977595C89F51BA6932366A755776
 
-- name: Add deadsnakes PPA
+- name: Add <repository>
   become: true
   ansible.builtin.apt_repository:
-    repo: ppa:deadsnakes/ppa
+    repo: <repo>:<repo_name>/<tag>
     state: present
 
 - name: Update apt cache
@@ -13,31 +13,11 @@
   ansible.builtin.apt:
     update_cache: yes
 
-- name: Install python3.10 and venv
+- name: Install <Python version> and venv
   become: true
   ansible.builtin.apt:
     name:
-      - python3.10
-      - python3.10-venv
+      - <python_version>
+      - <python_version>-venv
       - python3-pip
     state: present
-
-- name: Change permissions of multi-model-databases
-  become: true
-  ansible.builtin.file:
-    path: /multi-model-databases
-    mode: '0777'
-    recurse: true
-
-- name: Create virtual environment
-  become: true
-  command: 
-    cmd: python3.10 -m venv /home/clouduser/multi-model-databases/project-env
-    creates: /home/clouduser/multi-model-databases/project-env
-
-- name: Install requirements
-  become: true
-  pip: 
-    requirements: /home/clouduser/multi-model-databases/requirements.txt
-    virtualenv: /home/clouduser/multi-model-databases/project-env
-    virtualenv_python: python3.10

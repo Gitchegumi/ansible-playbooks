@@ -1,49 +1,49 @@
 - name: Create temp directory
-  # This task creates the destination directory for the handout.
+  # This task creates the destination directory for the files.
   ansible.builtin.file:
-    path: /tmp/handout
+    path: /tmp/docs
     state: directory
 
 - name: create destination directory
-  # This task creates the destination directory for the handout.
+  # This task creates the destination directory for the files.
   ansible.builtin.file:
-    path: /home/clouduser/multi-model-databases
+    path: /home/clouduser/<directory_name>
     state: directory
 
 - name: Download Handout
-  # This will be the task for getting handouts. Change links as necessary.
-  # The links here are from week 5 of the Data Engineer course. They are
-  # just placeholders.
+  # This will be the task for getting support files. Change links as necessary.
   get_url:
-    url: "https://clouddataengineer.blob.core.windows.net/multi-model-databases/handout/multi-model-databases.gz"
-    dest: /tmp/handout/multi-model-databases.gz
-  register: handout
+    url: "<https://someurl.com/some-document.gz>"
+    dest: /tmp/docs/some-document.gz
+  register: document
   ignore_errors: true
 
-- name: Check if handouts file exists
+- name: Check if document file exists
   # This task checks if the handouts file exists. If it does, the task will be skipped.
   ansible.builtin.stat:
-    path: /tmp/handout/multi-model-databases.gz
-  register: handouts_file
+    path: /tmp/docs/some-document.gz
+  register: document_file
 
-- name: Unzip Handouts
+- name: Unzip Document
   # This task will unzip the handout and print the upacked files to the console.
   unarchive:
-    src: /tmp/handout/multi-model-databases.gz
+    src: /tmp/docs/some-document.gz
     dest: /home/clouduser/
     remote_src: yes
   register: unzip_result
-  when: handouts_file.stat.exists
+  when: document_file.stat.exists
 
 - name: Get Additional Resources
   # This task is optional. If there are no additiional resources, you can comment it out or delete it.
   get_url:
-    url: "https://clouddataengineer.blob.core.windows.net/f19-data-engineer/datasets/multi-model-databases/movieReview.json"
-    dest: /home/clouduser/multi-model-databases
+    url: "<someurl.com/some-file.json"
+    dest: /home/clouduser/<directory_name>
 
-- name: List contents of multi-model-databases
+- name: List contents of <directory_name>
+  # This and the following task will cache files that have been unzipped to the directory and list them to the console.
+  # They are optional.
   become: true
-  command: ls -l /home/clouduser/multi-model-databases
+  command: ls -l /home/clouduser/<directory_name>
   register: ls_output
 
 - name: Show ls_output
@@ -53,5 +53,5 @@
 - name: Remove tmp directory
   # This will remove the tmp directory after the handout has been unzipped.
   ansible.builtin.file:
-    path: /tmp/handout/
+    path: /tmp/docs/
     state: absent

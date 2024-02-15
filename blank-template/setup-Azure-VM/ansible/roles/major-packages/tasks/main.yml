@@ -1,3 +1,4 @@
+# This is the scafolding to install MongoDB. You can use it to get an idea for how to install other packages.
 - name: Add apt key
   become: true
   command: apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys F23C5A6CF475977595C89F51BA6932366A755776
