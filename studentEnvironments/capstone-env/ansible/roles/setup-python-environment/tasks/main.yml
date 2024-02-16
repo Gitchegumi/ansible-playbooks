@@ -9,12 +9,12 @@
 - name: Create virtual environment
   become: true
   command: 
-    cmd: python3.10 -m venv /home/clouduser/multi-model-databases/project-env
-    creates: /home/clouduser/multi-model-databases/project-env
+    cmd: python3.10 -m venv /home/clouduser/elucidate-capstone/project-env
+    creates: /home/clouduser/elucidate-capstone/project-env
 
 - name: Install requirements
   become: true
   pip: 
-    requirements: /home/clouduser/multi-model-databases/requirements.txt
-    virtualenv: /home/clouduser/multi-model-databases/project-env
+    requirements: requirements.txt
+    virtualenv: /home/clouduser/elucidate-capstone/project-env
     virtualenv_python: python3.10

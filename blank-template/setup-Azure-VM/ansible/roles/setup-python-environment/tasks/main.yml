@@ -1,20 +1,12 @@
-- name: Change permissions of multi-model-databases
-  # This task is strictly for the submitter for the AI2C AI Technition course and can be removed if not needed.
-  become: true
-  ansible.builtin.file:
-    path: /<directory_name>
-    mode: '0777'
-    recurse: true
-
 - name: Create virtual environment
   become: true
   command: 
-    cmd: python3.10 -m venv /home/clouduser/multi-model-databases/project-env
-    creates: /home/clouduser/multi-model-databases/project-env
+    cmd: python3.10 -m venv /home/clouduser/<your-directory>/project-env
+    creates: /home/clouduser/<your-directory>/project-env
 
 - name: Install requirements
   become: true
   pip: 
-    requirements: /home/clouduser/multi-model-databases/requirements.txt
-    virtualenv: /home/clouduser/multi-model-databases/project-env
+    requirements: requirements.txt
+    virtualenv: /home/clouduser/<your-directory>/project-env
     virtualenv_python: python3.10
