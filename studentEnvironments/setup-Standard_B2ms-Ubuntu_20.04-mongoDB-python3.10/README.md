@@ -18,10 +18,10 @@ chmod +x setup.sh
 source ./setup.sh
 ssh $USERNAME@$IP_ADDRESS
 ```
-> NOTE - if you use the VS Code remote connection extension, you might want to skip the `ssh` command. It will be done for you, and it will set up a link so that you can get directory navigation through the GUI.
 
+> NOTE - if you use the VS Code remote connection extension, you might want to skip the `ssh` command. It will be done for you, and it will set up a link so that you can get directory navigation through the GUI.  
 > `setup.sh` will run the following:
-> 
+>
 > ```bash
 > terraform -chdir=terraform init
 > terraform -chdir=terraform apply -auto-approve
@@ -32,5 +32,5 @@ ssh $USERNAME@$IP_ADDRESS
 > ansible-playbook ansible/playbook.yaml -u $USERNAME -i ansible/inventory.yml --ssh-common-args='-o StrictHostKeyChecking=no'
 > echo ".env file created with USERNAME and IP_ADDRESS"
 > ```
-> 
+>
 > As such, you should only need to run it once. If you need to run just the ansible command, I have included `ansible.sh` to reduce typing/remembering.
