@@ -1,4 +1,5 @@
 # Elucidate Computer Vision Development Environment
+
 > This environment is still in development. Launch at your own peril.
 
 This environment is designed to support the development of computer vision models and applications. It is based on the Azure Standard_B2ms VM with Ubuntu Server 20.04-lts and Python 3.10. It includes the following software:
@@ -91,5 +92,36 @@ wcwidth==0.2.13
 webencodings==0.5.1  
 yarg==0.1.9  
 
-
 </details>
+
+## Instructions
+
+1. Clone this repository.
+2. Navigate to the `studentEnvironments/capstone-env/` directory.
+3. Under the `terraform` directory, open the `variables.tf` file and change the `public_key` variables to your public key.
+    > If you don't have a public key, you can generate one with the following command:
+    >
+    > ```bash
+    >
+    > ssh-keygen -t rsa -b 4096
+    > ```
+    >
+    > You can then navigate to the `.ssh` directory on your local machine and copy the contents of the `id_rsa.pub` file to the `public_key` variable in the `variables.tf` file.
+
+4. Run the `setup.sh` script to create the environment.
+
+```bash
+
+chmod +x setup.sh
+source setup.sh
+
+```
+
+If something breaks with the ansible plabook, you can use the `ansible.sh` script to run just the playbook after you've fixed the issue.
+
+```bash
+
+chmod +x ansible.sh
+source ansible.sh
+
+```
