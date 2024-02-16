@@ -4,7 +4,7 @@
 
 This environment is designed to support the development of computer vision models and applications. It is based on the Azure Standard_B2ms VM with Ubuntu Server 20.04-lts and Python 3.10. It includes the following software:
 
-<details>
+<details> <!-- markdownlint-disable MD033 -->
 <summary>requirements.txt</summary>
 
 asttokens==2.4.1  
