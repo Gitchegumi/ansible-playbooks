@@ -1,7 +1,5 @@
 # Elucidate Computer Vision Development Environment
 
-> This environment is still in development. Launch at your own peril.
-
 This environment is designed to support the development of computer vision models and applications. It is based on the Azure Standard_B2ms VM with Ubuntu Server 20.04-lts and Python 3.10. It includes the following software:
 
 <details> <!-- markdownlint-disable MD033 -->
@@ -110,7 +108,9 @@ yarg==0.1.9
     >
     > You can then navigate to the `.ssh` directory on your local machine and copy the contents of the `id_rsa.pub` file to the `public_key` variable in the `variables.tf` file.
 
-4. Run the `setup.sh` script to create the environment.
+4. Ensure that you have a Personal Access Token with Repo permissions from GitHub. You will need to provide your GitHub username and PAT when the ansible playbook runs. This will allow the environment to clone the `S24-BDA` repository.
+
+5. Run the `setup.sh` script to create the environment.
 
 ```bash
 
