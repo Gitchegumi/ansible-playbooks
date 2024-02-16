@@ -19,7 +19,7 @@ variable "vm_name" {
 variable "vm_size" {
     description = "The size of the virtual machine"
     type = string
-    default = "Standard_NC4as_T4_v3" # upgrade to Standard_NC8as_T4_v3 or Standard_NC16as_T4_v3 when allowed to
+    default = "Standard_B2ms" # upgrade to Standard_NC8as_T4_v3 or Standard_NC16as_T4_v3 when allowed to
 }
 
 variable "vm_image_publisher" {
