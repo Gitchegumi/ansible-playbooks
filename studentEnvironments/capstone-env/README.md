@@ -96,6 +96,8 @@ yarg==0.1.9
 
 ## Instructions
 
+> NOTE: the commands in this section should be run from a bash terminal with terraform and ansible installed.
+
 1. Clone this repository.
 2. Navigate to the `studentEnvironments/capstone-env/` directory.
 3. Under the `terraform` directory, open the `variables.tf` file and change the `public_key` variables to your public key.
