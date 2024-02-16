@@ -6,5 +6,5 @@
 
 - name: Clone GitHub repository
   ansible.builtin.git:
-    repo: 'https://{{ github_user }}:{{ github_password }}@github.com/AI-Technicians-Capstone-Projects/S24-BDA.git'
+    repo: 'https://{{ github_username }}:{{ github_pass }}@github.com/AI-Technicians-Capstone-Projects/S24-BDA.git'
     dest: /home/clouduser/elucidate-capstone
