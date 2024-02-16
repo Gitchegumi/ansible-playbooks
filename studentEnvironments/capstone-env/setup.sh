@@ -1,3 +1,4 @@
+#!/bin/bash/
 terraform -chdir=terraform init
 terraform -chdir=terraform apply -auto-approve
 export USERNAME=$(terraform -chdir=terraform output -raw username)
