@@ -2,18 +2,18 @@
 - hosts: all
   become: true
   vars_prompt:
-    - name: "github_username"
+    - name: "username"
       prompt: "Enter your github username"
       private: no
-    - name: "github_pass"
-      prompt: "Enter your github password"
+    - name: "user_pat"
+      prompt: "Enter your github PAT"
       private: yes
   
   roles:
     - role: get-repo
       vars:
-        github_user: "{{ github_username }}"
-        github_password: "{{ github_pass }}"
+        github_user: "{{ username }}"
+        github_PAT: "{{ user_pat }}"
     - install-python
     - setup-python-environment
     - major-packages

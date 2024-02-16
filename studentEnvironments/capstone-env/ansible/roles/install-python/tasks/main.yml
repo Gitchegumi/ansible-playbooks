@@ -9,7 +9,7 @@
 - name: Install Python 3.10 and venv
   ansible.builtin.apt:
     name:
-      - Python3.10
-      - Python3.10-venv
+      - python3.10
+      - python3.10-venv
       - python3-pip
     state: present

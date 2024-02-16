@@ -1,11 +1,3 @@
-- name: Change permissions of multi-model-databases
-  # This task is strictly for the submitter for the AI2C AI Technition course and can be removed if not needed.
-  become: true
-  ansible.builtin.file:
-    path: /<directory_name>
-    mode: '0777'
-    recurse: true
-
 - name: Create virtual environment
   become: true
   command: 
@@ -15,6 +7,6 @@
 - name: Install requirements
   become: true
   pip: 
-    requirements: requirements.txt
+    requirements: /home/clouduser/elucidate-capstone/S24-BDA/requirements.txt
     virtualenv: /home/clouduser/elucidate-capstone/project-env
     virtualenv_python: python3.10
