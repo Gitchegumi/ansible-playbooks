@@ -7,13 +7,13 @@ variable "location" {
 variable "resource_group_name" {
     description = "The name of the resource group"
     type = string
-    default = "multi-model-databases"
+    default = "cloud-native-week-3"
 }
 
 variable "vm_name" {
     description = "The name of the virtual machine"
     type = string
-    default = "multimodelengg"
+    default = "cloud-native-vm"
 }
 
 variable "vm_size" {
