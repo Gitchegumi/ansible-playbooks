@@ -1,0 +1,17 @@
+---
+- hosts: all
+  become: true
+  vars_prompt:
+    - name: "username"
+      prompt: "Enter your github username"
+      private: no
+    - name: "user_pat"
+      prompt: "Enter your github PAT"
+      private: yes
+  
+  roles:
+    - role: get-repo
+      vars:
+        github_user: "{{ username }}"
+        github_PAT: "{{ user_pat }}"
+    - upgrade
