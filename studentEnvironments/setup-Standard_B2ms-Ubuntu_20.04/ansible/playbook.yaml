@@ -14,4 +14,4 @@
       vars:
         github_user: "{{ username }}"
         github_PAT: "{{ user_pat }}"
-    - upgrade
+    - install-packages
