@@ -1,6 +1,6 @@
 # Boilerplates
 
-This is a blank template for creating new dev enbironments with Terraform and Ansible.
+This is a blank template for creating new dev environments with Terraform and Ansible.
 
 [Azure VM](./setup-Azure-VM/)
 
