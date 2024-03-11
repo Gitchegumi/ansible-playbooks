@@ -81,20 +81,8 @@ resource "azurerm_linux_virtual_machine" "main" {
   admin_username                 = var.local_admin_username
   admin_ssh_key {
     username                     = var.local_admin_username
-    public_key                   = var.laptop_public_key
+    public_key                   = file("./public_keys")
     }
-  admin_ssh_key {
-    username                     = var.local_admin_username
-    public_key                   = var.laptop_WSL_public_key
-  }
-  admin_ssh_key {
-    username                     = var.local_admin_username
-    public_key                   = var.desktop_public_key
-  }
-  admin_ssh_key {
-    username                     = var.local_admin_username
-    public_key                   = var.desktop_WSL_public_key
-  }
   os_disk {
     caching                      = "ReadWrite"
     storage_account_type         = var.vm_os_disk_storage_type
