@@ -5,7 +5,6 @@ This is a blank template for creating new dev environments with Terraform and An
 [Azure VM](./setup-Azure-VM/)
 
 ```bash
-
 ├── ansible
 │   ├── playbook.yaml
 │   ├── inventory.yml #gets created by terraform, it is not currently in the repo

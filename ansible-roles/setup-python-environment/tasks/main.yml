@@ -1,0 +1,12 @@
+- name: Create virtual environment
+  become: true
+  command: 
+    cmd: python3.10 -m venv /home/clouduser/<your-directory>/project-env
+    creates: /home/clouduser/<your-directory>/project-env
+
+- name: Install requirements
+  become: true
+  pip: 
+    requirements: requirements.txt
+    virtualenv: /home/clouduser/<your-directory>/project-env
+    virtualenv_python: python3.10

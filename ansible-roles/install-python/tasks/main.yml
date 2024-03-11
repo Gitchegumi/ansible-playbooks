@@ -1,0 +1,23 @@
+- name: Add apt key
+  become: true
+  command: apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys F23C5A6CF475977595C89F51BA6932366A755776
+
+- name: Add <repository>
+  become: true
+  ansible.builtin.apt_repository:
+    repo: <repo>:<repo_name>/<tag>
+    state: present
+
+- name: Update apt cache
+  become: true
+  ansible.builtin.apt:
+    update_cache: yes
+
+- name: Install <Python version> and venv
+  become: true
+  ansible.builtin.apt:
+    name:
+      - <python_version>
+      - <python_version>-venv
+      - python3-pip
+    state: present
