@@ -1,0 +1,41 @@
+- name: Check if fastapi directory exists
+  # This task checks if the fastapi-p4 directory exists.
+  stat:
+    path: /home/clouduser/fastapi-p4
+  register: poetry
+
+- name: Initialize fastapi Project
+  # This task initializes the fastapi-p4 project.
+  shell: 
+    cmd: /home/clouduser/.local/bin/poetry new fastapi
+    executable: /bin/bash
+    chdir: /home/clouduser/
+  when: not poetry.stat.exists
+
+- name: Check if poetry.toml file exists
+  # This task checks if the poetry.toml file exists.
+  stat:
+    path: /home/clouduser/fastapi/poetry.toml
+  register: poetry_toml
+
+- name: Create poetry.toml file
+  # This task creates the poetry.toml file.
+  copy:
+    dest: /home/clouduser/fastapi-p4/poetry.toml
+    content: |
+      [virtualenvs]
+      in-project = true
+      path = ".venv"
+  when: not poetry_toml.stat.exists
+
+- name: Install fastapi, uvicorn, gunicorn, and llama-cpp-python
+  # This task installs fastapi and uvicorn.
+  command:
+    cmd: /home/clouduser/.local/bin/poetry add fastapi uvicorn[standard] gunicorn llama-cpp-python
+    chdir: /home/clouduser/fastapi/
+
+- name: Download Machine Learning Model
+  # This task downloads the machine learning model.
+  get_url:
+    url: "https://huggingface.co/TheBloke/TinyLlama-1.1B-Chat-v1.0-GGUF/resolve/main/tinyllama-1.1b-chat-v1.0.Q2_K.gguf"
+    dest: /home/clouduser/fastapi/tinyllama-1.1b-chat-v1.0.Q2_K.gguf
