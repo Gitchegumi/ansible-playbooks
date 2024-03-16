@@ -1,0 +1,2 @@
+- name: Run Python script to create Azure Machine Learning compute instance
+  ansible.builtin.script: files/create_compute_instance.py

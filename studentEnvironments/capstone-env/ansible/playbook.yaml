@@ -4,10 +4,10 @@
   vars_prompt:
     - name: "username"
       prompt: "Enter your github username"
-      private: no
+      private: false
     - name: "user_pat"
       prompt: "Enter your github PAT"
-      private: yes
+      private: true
   
   roles:
     - role: get-repo
