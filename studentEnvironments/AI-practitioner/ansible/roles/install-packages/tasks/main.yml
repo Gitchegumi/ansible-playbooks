@@ -1,0 +1,22 @@
+- name: Create tmp directory
+  file:
+    path: /tmp
+    state: directory
+    mode: '0755'
+  
+- name: Download dependencies
+  get_url:
+    url: <url>
+  dest: /tmp/<file-name>.gz
+
+- name: unpack dependencies
+  unarchive:
+    src: /tmp/<file-name>.gz
+    dest: /home/clouduser/
+    remote_src: true
+
+- name: Install requirements.txt
+  pip:
+    requirements: /home/clouduser/<handout>/requirements.txt
+    state: present
+

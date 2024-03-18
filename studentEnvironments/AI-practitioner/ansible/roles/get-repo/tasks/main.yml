@@ -1,0 +1,11 @@
+- name: create destination directory
+  # This task creates the destination directory for the files.
+  ansible.builtin.file:
+    path: /home/clouduser/cloud-native/
+    state: directory
+    recurse: true
+
+- name: Clone GitHub repository
+  ansible.builtin.git:
+    repo: 'https://{{ username }}:{{ user_pat }}@github.com/<repo-url>.git'
+    dest: /home/clouduser/cloud-native/project-3
